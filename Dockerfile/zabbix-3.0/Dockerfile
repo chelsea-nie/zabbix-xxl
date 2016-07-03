@@ -175,10 +175,11 @@ RUN \
   openssl req -new -key /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.csr -subj "/C=GB/L=London/O=Company Ltd/CN=zabbix-docker" && \
   openssl x509 -req -days 3650 -in /etc/nginx/ssl/dummy.csr -signkey /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.crt && \
   yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
-  yum install -y --enablerepo=remi-php71 php71-php-fpm \
-       php71-php-gd php71-php-bcmath php71-php-ctype php71-php-xml php71-php-xmlreader php71-php-xmlwriter \
-       php71-php-session php71-php-net-socket php71-php-mbstring php71-php-gettext php71-php-cli \
-       php71-php-mysqlnd php71-php-opcache php71-php-pdo php71-php-snmp php71-php-ldap && \
+  # https://support.zabbix.com/browse/ZBX-10926 && \
+  yum install -y --enablerepo=remi-php70 php70-php-fpm \
+       php70-php-gd php70-php-bcmath php70-php-ctype php70-php-xml php70-php-xmlreader php70-php-xmlwriter \
+       php70-php-session php70-php-net-socket php70-php-mbstring php70-php-gettext php70-php-cli \
+       php70-php-mysqlnd php70-php-opcache php70-php-pdo php70-php-snmp php70-php-ldap && \
   yum clean all && rm -rf /tmp/*
 ADD container-files-base /
 
