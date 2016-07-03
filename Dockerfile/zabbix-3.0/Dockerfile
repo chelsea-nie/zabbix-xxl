@@ -175,10 +175,10 @@ RUN \
   openssl req -new -key /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.csr -subj "/C=GB/L=London/O=Company Ltd/CN=zabbix-docker" && \
   openssl x509 -req -days 3650 -in /etc/nginx/ssl/dummy.csr -signkey /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.crt && \
   yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm && \
-  yum install -y --enablerepo=remi-php56 php-fpm \
-       php-gd php-bcmath php-ctype php-xml php-xmlreader php-xmlwriter \
-       php-session php-net-socket php-mbstring php-gettext php-cli \
-       php-mysqlnd php-opcache php-pdo php-snmp php-ldap && \
+  yum install -y --enablerepo=remi-php71 php71-php-fpm \
+       php71-php-gd php71-php-bcmath php71-php-ctype php71-php-xml php71-php-xmlreader php71-php-xmlwriter \
+       php71-php-session php71-php-net-socket php71-php-mbstring php71-php-gettext php71-php-cli \
+       php71-php-mysqlnd php71-php-opcache php71-php-pdo php71-php-snmp php71-php-ldap && \
   yum clean all && rm -rf /tmp/*
 ADD container-files-base /
 
